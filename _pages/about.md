@@ -32,6 +32,10 @@ Oops! I haven't added my research interests yet. Work on progress! Return later!
 * I love analog photography, here a small sample of my work: pending attach imgs
 * I love riding bike but I haven't had much time for it lately.
 * I am a motorcycle driver, I love to visit towns in the middle of nowhere.
+
+<iframe src="https://www.instagram.com/p/DMoNYsESPPr/embed" 
+        width="400" height="480" frameborder="0" scrolling="no"></iframe>
+
 * I used to play the clarinet in a distinguished orchestra, but I had to stop due to my time constraints (University).
 * There is no person more "Rolo" than me. I dance while clapping my hands and singing local cumbia.
 * Changüa lover. (Only Colombian people will understand)
