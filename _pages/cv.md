@@ -54,11 +54,11 @@ Skills
 - **Interests:** IoT, Cybersecurity, Operating Systems, Software Architecture 
 
 
-Publications
+<!-- Publications
 ======
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+  {% endfor %}</ul> -->
   
 <!-- Talks
 ======
