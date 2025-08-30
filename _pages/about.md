@@ -34,8 +34,6 @@ I am new to research, so I have not defined my puntual research interests clearl
 # Personal Life
 * I love analog photography, here a small sample of my work: 
 
-<div align="center">
-
 ![alt text](/images/camera/1.jpg)
 ![alt text](/images/camera/2.jpg)
 ![alt text](/images/camera/3.jpg)
@@ -46,9 +44,6 @@ I am new to research, so I have not defined my puntual research interests clearl
 ![alt text](/images/camera/8.jpg)
 ![alt text](/images/camera/9.jpg)
 ![alt text](/images/camera/10.jpg)
-
-
-</div>
 
 
 * I love riding bike but I haven't had much time for it lately.
