@@ -34,11 +34,21 @@ I am new to research, so I have not defined my puntual research interests clearl
 # Personal Life
 * I love analog photography, here a small sample of my work: 
 
-![alt text](/images/500x300.png) ![alt text](/images/500x300.png)
+![alt text](/images/camera/1.jpg)
+![alt text](/images/camera/2.jpg)
+![alt text](/images/camera/3.jpg)
+![alt text](/images/camera/4.jpg)
+![alt text](/images/camera/5.jpg)
+![alt text](/images/camera/6.jpg)
+![alt text](/images/camera/7.jpg)
+![alt text](/images/camera/8.jpg)
+![alt text](/images/camera/9.jpg)
+![alt text](/images/camera/10.jpg)
+
+
+
 * I love riding bike but I haven't had much time for it lately.
 * I am a motorcycle driver, I love to visit towns in the middle of nowhere.
-
-
 * I used to play the clarinet in a distinguished orchestra, but I had to stop due to my time constraints (University).
 * There is no person more "Rolo" than me. I dance while clapping my hands and singing local cumbia.
 * Changüa lover. (Only Colombian people will understand)
