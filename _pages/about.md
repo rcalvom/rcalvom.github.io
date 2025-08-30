@@ -34,17 +34,29 @@ I am new to research, so I have not defined my puntual research interests clearl
 # Personal Life
 * I love analog photography, here a small sample of my work: 
 
-![alt text](/images/camera/1.jpg)
-![alt text](/images/camera/2.jpg)
-![alt text](/images/camera/3.jpg)
-![alt text](/images/camera/4.jpg)
-![alt text](/images/camera/5.jpg)
-![alt text](/images/camera/6.jpg)
-![alt text](/images/camera/7.jpg)
-![alt text](/images/camera/8.jpg)
-![alt text](/images/camera/9.jpg)
-![alt text](/images/camera/10.jpg)
+<div align="center">
+<p float="left">
+  <img src="/images/camera/1.jpg" width="200"/>
+  <img src="/images/camera/2.jpg" width="200"/>
+  <img src="/images/camera/3.jpg" width="200"/>
+</p>
 
+<p float="left">
+  <img src="/images/camera/4.jpg" width="200"/>
+  <img src="/images/camera/5.jpg" width="200"/>
+  <img src="/images/camera/6.jpg" width="200"/>
+</p>
+
+<p float="left">
+  <img src="/images/camera/7.jpg" width="200"/>
+  <img src="/images/camera/8.jpg" width="200"/>
+  <img src="/images/camera/9.jpg" width="200"/>
+</p>
+
+<p float="left">
+  <img src="/images/camera/10.jpg" width="200"/>
+</p>
+</div>
 
 * I love riding bike but I haven't had much time for it lately.
 * I am a motorcycle driver, I love to visit towns in the middle of nowhere.
