@@ -24,7 +24,7 @@ I have worked during almost five years for industry as software developer, techn
 
 * As **software developer** I served to a consulting company [Fit Ideas](https://www.fitideas.ai/), where I worked on various projects for clients in different industries, from banking to data automation collection.
 * As **technical lead** I have experience in leading development teams in Fit Ideas, taking design decisions, guiding the development process and ensuring the successful delivery of projects.
-* As **QA engineer** I automated testing processes and implemented best practices to improve software quality. I automated unit tests, integration tests, end-to-end tests, and performance tests using the appropriate CI/CD tools and frameworks.
+* As **QA engineer** I automated testing processes and implemented best practices to improve software quality in [Kravata](https://www.kravata.co/). I automated unit tests, integration tests, end-to-end tests, and performance tests using the appropriate CI/CD tools and frameworks.
 
 # Research Interests
 I am new to research, so I have not defined my puntual research interests clearly yet. But I have a strong interest in the following areas:
@@ -34,8 +34,7 @@ I am new to research, so I have not defined my puntual research interests clearl
 # Personal Life
 * I love analog photography, here a small sample of my work: 
 
-![alt text](/images/500x300.png)
-![alt text](/images/500x300.png)
+![alt text](/images/500x300.png) ![alt text](/images/500x300.png)
 * I love riding bike but I haven't had much time for it lately.
 * I am a motorcycle driver, I love to visit towns in the middle of nowhere.
 
