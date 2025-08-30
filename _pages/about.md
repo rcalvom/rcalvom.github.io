@@ -7,7 +7,8 @@ redirect_from:
   - /about.html
 ---
 
-Hello! I am Ricardo Calvo.
+Hello! I am Ricardo Calvo. 🫡
+
 I am a PhD student in Electrical and Computer Engineering at Purdue University.
 
 # Academic background
