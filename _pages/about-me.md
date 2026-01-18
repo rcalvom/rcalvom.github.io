@@ -28,6 +28,7 @@ gallery:
 I am from Bogotá, Colombia 🇨🇴 where I lived for 21 years. I am an ajiaco lover and a proud changua advocate 🍲.
 Since 2025, I have been living in West Lafayette, Indiana, USA for my PhD at Purdue.
 
+Here is my latest [Curriculum Vitae](/files/cv.pdf).
 
 ## My hobbies
 
@@ -37,4 +38,3 @@ Since 2025, I have been living in West Lafayette, Indiana, USA for my PhD at Pur
 * I am an analog camera enthusiast 📸 I shoot negative film with a [Kodak EKTAR H35 Half Frame 35mm](https://www.kodak.com/en/consumer/product/cameras/film/h35-film-camera/) and instant film with a [Fujifilm Instax Mini 12](https://instax.com/mini_12/en/). Here are a few photos I have taken:
 
 {% include gallery %}
-
