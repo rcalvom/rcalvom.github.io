@@ -11,11 +11,8 @@ main:
   - title: "Publications"
     url: /publications/
 
-  - title: "About me"
-    url: /about-me/
-
-  # - title: "Talks"
-  #   url: /talks/    
+  - title: "Talks"
+    url: /talks/
 
   # - title: "Teaching"
   #   url: /teaching/    
@@ -26,8 +23,11 @@ main:
   # - title: "Blog Posts"
   #   url: /year-archive/
     
-  # - title: "CV"
-  #   url: /cv/
+  - title: "CV"
+    url: /cv/
+
+  - title: "About me"
+    url: /about-me/
     
   # - title: "CV"
   #   url: /cv-json/

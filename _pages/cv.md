@@ -9,56 +9,47 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+<style>
+  .cv-page {
+    max-width: 980px;
+    margin: 0 auto;
+  }
 
-Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+  .cv-page .cv-download-links {
+    margin-bottom: 1rem;
+  }
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+  .cv-page .cv-viewer {
+    border: 1px solid var(--global-border-color);
+    border-radius: 0.6rem;
+    overflow: hidden;
+    background: var(--global-bg-color);
+  }
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+  .cv-page .cv-viewer iframe {
+    display: block;
+    width: 100%;
+    height: 78vh;
+    min-height: 760px;
+    border: 0;
+  }
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+  @media (max-width: 768px) {
+    .cv-page .cv-viewer iframe {
+      height: 72vh;
+      min-height: 560px;
+    }
+  }
+</style>
+
+<div class="cv-page">
+  <div class="cv-download-links">
+    <a href="{{ base_path }}/files/cv.pdf" class="btn btn--primary">Download CV as PDF</a>
+  </div>
+
+  <div class="cv-viewer">
+    <iframe src="{{ base_path }}/files/cv.pdf#view=FitH">
+      This browser does not support PDFs. Please download the CV using the button above.
+    </iframe>
+  </div>
+</div>

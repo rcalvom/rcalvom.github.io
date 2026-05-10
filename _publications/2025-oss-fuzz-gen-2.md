@@ -1,7 +1,7 @@
 ---
 title: "FalseCrashReducer: Mitigating False Positive Crashes in OSS-Fuzz-Gen Using Agentic AI"
 collection: publications
-category: technical_reports
+category: manuscripts
 permalink: /publication/oss-fuzz-gen
 #excerpt: 'This paper is about the number 2. The number 3 is left for future work.'
 date: 2025-10-2
