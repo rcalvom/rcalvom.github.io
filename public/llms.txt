@@ -1,0 +1,19 @@
+# Ricardo Calvo Mendez
+
+> Academic website of Ricardo Calvo Mendez, a PhD student in Electrical and Computer Engineering at Purdue University.
+
+## Main pages
+
+- [Profile](https://rcalvom.github.io/): research interests, education, experience, service, and grants.
+- [Publications](https://rcalvom.github.io/publications/): publication records and links to papers, slides, and BibTeX.
+- [Talks and presentations](https://rcalvom.github.io/talks/): conference talks and poster presentations.
+- [CV](https://rcalvom.github.io/cv/): web CV and official downloadable PDF.
+- [About me](https://rcalvom.github.io/about-me/): personal background and photography.
+- [Blog posts](https://rcalvom.github.io/year-archive/): published posts by year.
+
+## Canonical sources
+
+- [Sitemap](https://rcalvom.github.io/sitemap-index.xml)
+- [Official CV PDF](https://rcalvom.github.io/cv.pdf)
+- [Google Scholar](https://scholar.google.com/citations?user=JwpDnSIAAAAJ&hl=es&authuser=1)
+- [ORCID](https://orcid.org/0009-0003-6681-4840)

@@ -12,6 +12,22 @@ interface Props {
 const { title, description = site.description } = Astro.props;
 const pageTitle = title ? `${title} | ${site.name}` : site.name;
 const canonical = new URL(Astro.url.pathname, site.url);
+const socialImage = new URL("/images/ricardo.jpg", site.url);
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  description,
+  email: `mailto:${site.email}`,
+  image: socialImage.href,
+  jobTitle: site.role,
+  url: site.url,
+  affiliation: {
+    "@type": "Organization",
+    name: site.institution
+  },
+  sameAs: Object.values(site.links)
+};
 ---
 
 <!doctype html>
@@ -20,7 +36,22 @@ const canonical = new URL(Astro.url.pathname, site.url);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="author" content={site.name} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/xml" title="Sitemap" href="/sitemap-index.xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical.href} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:image" content={socialImage.href} />
+    <meta property="og:image:alt" content={`Portrait of ${site.name}`} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage.href} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -31,6 +62,7 @@ const canonical = new URL(Astro.url.pathname, site.url);
     <link rel="icon" href="/images/favicon.ico" sizes="any" />
     <meta name="theme-color" content="#000000" />
     <title>{pageTitle}</title>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
     <script is:inline>
       (() => {
         try {

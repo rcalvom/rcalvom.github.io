@@ -79,6 +79,13 @@ npm run build
 - Keep `public/images/` for stable legacy/static image paths.
 - The photography gallery uses PhotoSwipe and should remain progressively enhanced.
 
+### Discovery metadata
+
+- Keep `public/robots.txt` permissive and point it to `/sitemap-index.xml`.
+- Keep `public/llms.txt` concise, public, and aligned with the canonical site routes.
+- `BaseLayout.astro` owns canonical URLs, manifest, Open Graph/Twitter metadata, and Person JSON-LD. Pass a useful `title` and `description` from pages rather than duplicating these tags.
+- Preserve the sitemap integration in `astro.config.mjs` and the static manifest in `public/site.webmanifest`.
+
 ## Design rules
 
 - Use the Ubuntu and Ubuntu Mono font families loaded in `BaseLayout.astro`.

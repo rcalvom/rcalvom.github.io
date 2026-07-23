@@ -1,12 +1,5 @@
-# Legacy Jekyll build output
-_site/
-.sass-cache/
-
-# Ignore the directory for local files during development
+# Local development files
 local/
-
-# Legacy Ruby dependencies
-Gemfile.lock
 
 # Node and Astro build output
 node_modules/

@@ -36,6 +36,13 @@ npm run build
 
 The generated static site is written to `dist/`.
 
+## Structure
+
+- `src/`: Astro pages, layouts, components, source images, styles, and content collections.
+- `public/`: static files served as-is, including legacy image URLs and downloadable PDFs.
+- `templates/`: Markdown starting points for new content.
+- `.github/workflows/`: GitHub Pages build and deployment workflow.
+
 ## Content
 
 - Publications: `src/content/publications/`

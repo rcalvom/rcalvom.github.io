@@ -84,6 +84,7 @@ Supported the implementation of custom functionality and contributed to the desi
 
 ## Conference attendance
 
+- ACM International Conference on the Foundations of Software Engineering (FSE 2026), Montreal, Canada, July 5-9, 2026.
 - 39th IEEE International Conference on Software Maintenance and Evolution (ICSME 2023), Bogota, Colombia, October 2023.
 - ACM/IEEE 48th International Conference on Software Engineering (ICSE 2026), Rio de Janeiro, Brazil, April 2026.
 
