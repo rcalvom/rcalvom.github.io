@@ -79,8 +79,8 @@ Supported the implementation of custom functionality and contributed to the desi
 
 ## Talks and presentations
 
-- **Lessons from Mitigating False Positives in Google's OSS-Fuzz-Gen.** Fuzzing 2, Industry Papers, FSE 2026, Montreal, Canada, July 8, 2026.
-- **How Do Agents Perform Code Optimization? An Empirical Study.** Poster, Mining Challenge Track, MSR 2026, Rio de Janeiro, Brazil, April 14, 2026.
+- Lessons from Mitigating False Positives in Google's OSS-Fuzz-Gen. Industry Papers, FSE 2026, Montreal, Canada, July 8, 2026.
+- How Do Agents Perform Code Optimization? An Empirical Study. Poster, Mining Challenge Track, MSR 2026, Rio de Janeiro, Brazil, April 14, 2026.
 
 ## Conference attendance
 
