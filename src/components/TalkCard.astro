@@ -1,0 +1,19 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { formatLongDate } from "../lib/content";
+
+interface Props {
+  talk: CollectionEntry<"talks">;
+}
+
+const { talk } = Astro.props;
+const { data } = talk;
+---
+
+  <article class="talk-card">
+    <div class="talk-card__date"><span>{formatLongDate(data.date)}</span></div>
+    <div>
+      <h2><a href={`/talks/${data.slug}/`}>{data.title}</a></h2>
+      <p>{data.type}, <em>{data.venue}</em>, {data.location}</p>
+  </div>
+</article>

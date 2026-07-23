@@ -1,0 +1,15 @@
+<button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" /><circle cx="12" cy="12" r="2.75" /></svg>
+</button>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>(".theme-toggle");
+
+  for (const button of buttons) {
+    button.addEventListener("click", () => {
+      const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = nextTheme;
+      localStorage.setItem("site-theme", nextTheme);
+    });
+  }
+</script>

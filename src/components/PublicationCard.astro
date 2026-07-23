@@ -1,0 +1,21 @@
+---
+import type { CollectionEntry } from "astro:content";
+interface Props {
+  publication: CollectionEntry<"publications">;
+  featured?: boolean;
+}
+
+const { publication, featured = false } = Astro.props;
+const { data } = publication;
+---
+
+<article class:list={["publication-card", { "publication-card--featured": featured }]}>
+  <div class="publication-card__main">
+    <h2><a href={`/publication/${data.slug}/`}>{data.title}</a></h2>
+    <p class="publication-card__venue">Published in <em>{data.venue}</em>, {data.date.getFullYear()}.</p>
+    <p class="publication-card__citation">Recommended citation: {data.citation}</p>
+    <div class="publication-card__actions">
+      {data.paperUrl && <a href={data.paperUrl} target="_blank" rel="noreferrer">Download Paper</a>}
+    </div>
+  </div>
+</article>

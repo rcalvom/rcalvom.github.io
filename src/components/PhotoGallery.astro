@@ -1,0 +1,58 @@
+---
+import { Image, getImage } from "astro:assets";
+import "photoswipe/style.css";
+import photo1 from "../assets/photos/1.jpg";
+import photo2 from "../assets/photos/2.jpg";
+import photo3 from "../assets/photos/3.jpg";
+import photo4 from "../assets/photos/4.jpg";
+import photo5 from "../assets/photos/5.jpg";
+import photo6 from "../assets/photos/6.jpg";
+import photo7 from "../assets/photos/7.jpg";
+import photo8 from "../assets/photos/8.jpg";
+import photo9 from "../assets/photos/9.jpg";
+import photo10 from "../assets/photos/10.jpg";
+import photo11 from "../assets/photos/11.jpg";
+import photo12 from "../assets/photos/12.jpg";
+import photo13 from "../assets/photos/13.jpg";
+import photo14 from "../assets/photos/14.jpg";
+import photo15 from "../assets/photos/15.jpg";
+import photo16 from "../assets/photos/16.jpg";
+
+const sourcePhotos = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11, photo12, photo13, photo14, photo15, photo16];
+const photos = await Promise.all(
+  sourcePhotos.map(async (image, index) => ({
+    image,
+    number: String(index + 1).padStart(2, "0"),
+    lightbox: await getImage({
+      src: image,
+      width: Math.min(image.width, 1800),
+      format: "webp"
+    })
+  }))
+);
+---
+
+<section class="photo-section" aria-labelledby="photo-gallery-title">
+  <h2 id="photo-gallery-title" class="sr-only">Photography</h2>
+  <div id="photo-gallery" class="photo-gallery">
+    {photos.map((photo, index) => (
+      <figure class="photo-gallery__item">
+        <a href={photo.lightbox.src} data-pswp-width={photo.lightbox.attributes.width} data-pswp-height={photo.lightbox.attributes.height} aria-label={`Open film photograph ${photo.number}`}>
+          <Image src={photo.image} alt={`Photo ${index + 1}`} widths={[480, 800, 1200]} sizes="(max-width: 760px) calc(100vw - 2rem), (max-width: 1100px) 45vw, 30vw" format="webp" loading="lazy" />
+        </a>
+      </figure>
+    ))}
+  </div>
+</section>
+
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#photo-gallery",
+    children: "a",
+    pswpModule: () => import("photoswipe")
+  });
+
+  lightbox.init();
+</script>

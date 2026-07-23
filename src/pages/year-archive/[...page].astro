@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentLayout from "../../components/ContentLayout.astro";
+import { site } from "../../config/site";
+import { getPublishedPosts, formatLongDate, getDatePath } from "../../lib/content";
+
+export async function getStaticPaths() {
+  if (!site.blogEnabled) {
+    return [];
+  }
+
+  return [{ params: { page: undefined } }];
+}
+
+const posts = await getPublishedPosts();
+const postsByYear = posts.reduce<Record<string, typeof posts>>((years, post) => {
+  const year = String(post.data.date.getUTCFullYear());
+  (years[year] ??= []).push(post);
+  return years;
+}, {});
+---
+
+<BaseLayout title="Blog posts">
+  <main class="page-main shell">
+    <ContentLayout>
+      <header class="page-heading">
+        <div>
+          <h1>Blog posts</h1>
+        </div>
+      </header>
+      <section class="section">
+        {posts.length > 0 ? Object.entries(postsByYear).map(([year, yearPosts]) => (
+          <section class="blog-year">
+            <h2 id={year}>{year}</h2>
+            {yearPosts.map((post) => {
+              const datePath = getDatePath(post.data.date);
+              return <article class="blog-post-card">
+                <h3><a href={`/posts/${datePath.year}/${datePath.month}/${post.data.slug}/`}>{post.data.title}</a></h3>
+                <p class="blog-post-card__date">{formatLongDate(post.data.date)}</p>
+                {post.data.description && <p>{post.data.description}</p>}
+              </article>;
+            })}
+          </section>
+        )) : <p class="empty-state"></p>}
+      </section>
+    </ContentLayout>
+  </main>
+</BaseLayout>

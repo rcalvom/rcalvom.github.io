@@ -1,0 +1,36 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+import { site, visibleNavigation } from "../config/site";
+
+const pathname = Astro.url.pathname;
+const navigation = visibleNavigation();
+---
+
+<header class="site-header">
+  <div class="site-header__inner shell">
+    <a class="wordmark" href="/" aria-label={`${site.name} home`}>
+      <span class="wordmark__name">{site.name}</span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      {navigation.map((item) => (
+        <a class:list={["nav-link", { "nav-link--active": pathname.startsWith(item.href) }]} href={item.href}>
+          {item.label}
+        </a>
+      ))}
+      <ThemeToggle />
+    </nav>
+
+    <details class="mobile-nav">
+      <summary aria-label="Open navigation"><span></span><span></span></summary>
+      <div class="mobile-nav__panel">
+        {navigation.map((item) => (
+          <a class:list={["mobile-nav__link", { "mobile-nav__link--active": pathname.startsWith(item.href) }]} href={item.href}>
+            {item.label}
+          </a>
+        ))}
+        <ThemeToggle />
+      </div>
+    </details>
+  </div>
+</header>

@@ -1,0 +1,21 @@
+---
+import { site, visibleNavigation } from "../config/site";
+const year = new Date().getFullYear();
+const navigation = visibleNavigation();
+---
+
+<footer class="site-footer">
+  <div class="shell site-footer__inner">
+    <div class="site-footer__identity">
+      <p><span class="status-dot"></span> {site.name}</p>
+      <p class="site-footer__role">{site.role} | {site.location}</p>
+    </div>
+    <nav class="site-footer__nav" aria-label="Footer navigation">
+      {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+    <div class="site-footer__meta">
+      <p>{year}</p>
+      <a href="https://github.com/rcalvom/rcalvom.github.io" target="_blank" rel="noreferrer">Use this site as a template</a>
+    </div>
+  </div>
+</footer>

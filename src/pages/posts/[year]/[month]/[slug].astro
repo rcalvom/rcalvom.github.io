@@ -1,0 +1,41 @@
+---
+import { render } from "astro:content";
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import ContentLayout from "../../../../components/ContentLayout.astro";
+import { site } from "../../../../config/site";
+import { getPublishedPosts, formatLongDate, getDatePath } from "../../../../lib/content";
+
+export async function getStaticPaths() {
+  if (!site.blogEnabled) {
+    return [];
+  }
+
+  const posts = await getPublishedPosts();
+  return posts.map((post) => {
+    const datePath = getDatePath(post.data.date);
+    return {
+      params: { ...datePath, slug: post.data.slug },
+      props: { post }
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={post.data.title}>
+  <main class="page-main shell">
+    <ContentLayout>
+      <div class="article-layout">
+        <article>
+          <header class="article-header">
+            <h1>{post.data.title}</h1>
+            <div class="article-meta"><p>Published: {formatLongDate(post.data.date)}</p></div>
+          </header>
+          <div class="prose"><Content /></div>
+        </article>
+      </div>
+    </ContentLayout>
+  </main>
+</BaseLayout>

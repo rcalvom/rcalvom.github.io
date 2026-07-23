@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentLayout from "../../components/ContentLayout.astro";
+import { getPublications, getTalks } from "../../lib/content";
+
+const [publications, talks] = await Promise.all([getPublications(), getTalks()]);
+---
+
+<BaseLayout title="Sitemap">
+  <main class="page-main shell">
+    <ContentLayout>
+      <header class="page-heading">
+        <div>
+          <h1>Sitemap</h1>
+        </div>
+      </header>
+      <div class="sitemap-grid">
+        <section>
+          <h2>Main pages</h2>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/publications/">Publications</a></li>
+            <li><a href="/talks/">Talks</a></li>
+            <li><a href="/about-me/">About me</a></li>
+            <li><a href="/cv/">CV</a></li>
+          </ul>
+        </section>
+        <section>
+          <h2>Publications</h2>
+          <ul>{publications.map((publication) => <li><a href={`/publication/${publication.data.slug}/`}>{publication.data.title}</a></li>)}</ul>
+        </section>
+        <section>
+          <h2>Talks</h2>
+          <ul>{talks.map((talk) => <li><a href={`/talks/${talk.data.slug}/`}>{talk.data.title}</a> - {talk.data.date.toLocaleDateString("en-US", { month: "long", day: "2-digit", year: "numeric", timeZone: "UTC" })}</li>)}</ul>
+        </section>
+      </div>
+    </ContentLayout>
+  </main>
+</BaseLayout>

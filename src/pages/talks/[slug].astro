@@ -1,0 +1,34 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentLayout from "../../components/ContentLayout.astro";
+import { formatLongDate } from "../../lib/content";
+
+export async function getStaticPaths() {
+  const talks = await getCollection("talks");
+  return talks.map((talk) => ({ params: { slug: talk.data.slug }, props: { talk } }));
+}
+
+const { talk } = Astro.props;
+const { Content } = await render(talk);
+const { data } = talk;
+---
+
+<BaseLayout title={data.title}>
+  <main class="page-main shell">
+    <ContentLayout>
+      <div class="article-layout article-layout--single">
+        <article class="article-content">
+          <header class="article-header">
+            <h1>{data.title}</h1>
+            <div class="article-meta">
+              <p>Date: {formatLongDate(data.date)}</p>
+              <p>{data.type} at <em>{data.venue}</em>, {data.location}</p>
+            </div>
+          </header>
+          <div class="prose"><Content /></div>
+        </article>
+      </div>
+    </ContentLayout>
+  </main>
+</BaseLayout>

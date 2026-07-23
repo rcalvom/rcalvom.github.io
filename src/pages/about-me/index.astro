@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentLayout from "../../components/ContentLayout.astro";
+import PhotoGallery from "../../components/PhotoGallery.astro";
+---
+
+<BaseLayout title="About me">
+  <main class="page-main shell">
+    <ContentLayout>
+      <header class="page-heading">
+        <div>
+          <h1>About me</h1>
+        </div>
+      </header>
+      <div class="about-layout">
+        <section class="about-intro">
+          <p>I am from Bogotá, Colombia 🇨🇴 where I lived for 21 years. I am an ajiaco lover and a proud changua advocate 🍲. Since 2025, I have been living in West Lafayette, Indiana, USA for my PhD at Purdue.</p>
+        </section>
+        <section>
+        <h2>My hobbies</h2>
+        <ul class="hobby-list">
+          <li>I started learning the guitar 🎸 and clarinet at age 8. For a while I dreamed of a professional music career, but I found a deeper passion in computing engineering. These days I play just for fun. Here is a <a href="https://www.youtube.com/watch?v=DUkVjsmXk84">video of me playing clarinet and guitar</a>, where I also talk about that part of my life.</li>
+          <li>I used to take ping-pong classes 🏓 and now I practice squash regularly.</li>
+          <li>I own a <a href="https://motos.honda.com.co/motos-honda/motos-sport/XBLADE-160">Honda Xblade 160</a> 🏍️ I love riding, but I have not done a long trip around Colombia yet, and that is on my list.</li>
+          <li>I am an analog camera enthusiast 📸 I shoot negative film with a <a href="https://www.kodak.com/en/consumer/product/cameras/film/h35-film-camera/">Kodak EKTAR H35 Half Frame 35mm</a> and instant film with a <a href="https://instax.com/mini_12/en/">Fujifilm Instax Mini 12</a>. Here are a few photos I have taken:</li>
+        </ul>
+        <PhotoGallery />
+        </section>
+      </div>
+    </ContentLayout>
+  </main>
+</BaseLayout>

@@ -1,0 +1,84 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContentLayout from "../components/ContentLayout.astro";
+---
+
+<BaseLayout>
+  <main class="page-main shell">
+    <ContentLayout>
+      <div class="home-content">
+    <section class="home-hero">
+      <div>
+        <h1>Profile</h1>
+        <p class="home-intro">Hello, I am Ricardo Calvo.</p>
+        <p class="hero__lead">
+          I am a PhD student in Electrical and Computer Engineering at Purdue University, and a Graduate Research Assistant in the <a href="https://davisjam.github.io/research/">Duality Lab</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <h2>Research interests</h2>
+      </div>
+      <div class="research-grid research-grid--home">
+        <article class="research-card">
+          <h3>Formal verification:</h3>
+          <p>foundations and tools for proving software correctness.</p>
+        </article>
+        <article class="research-card">
+          <h3>Program analysis and testing:</h3>
+          <p>static, dynamic, and hybrid methods for understanding and validating code.</p>
+        </article>
+        <article class="research-card">
+          <h3>Optimization and efficiency:</h3>
+          <p>techniques for improving performance and resource usage in real systems.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading"><h2>Education</h2></div>
+      <ul class="home-list">
+        <li><strong>PhD, Electrical and Computer Engineering</strong>, Purdue University (2025-2030 expected).</li>
+        <li><strong>BSc, Systems and Computer Engineering</strong>, Universidad Nacional de Colombia (2018-2023).</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-heading"><h2>Academic experience</h2></div>
+      <ul class="home-list">
+        <li><strong>Graduate Research Assistant</strong>, Purdue University (Aug 2025-present).</li>
+        <li><strong>Undergraduate Visiting Scholar (UREP-C)</strong>, Purdue University (Feb 2023-Jul 2023), where I contributed to EmNetTest.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-heading"><h2>Professional experience</h2></div>
+      <ul class="home-list">
+        <li><strong>Test Engineer and QA Analyst</strong>, Kravata (Sep 2024-Jul 2025), leading test automation and CI/CD quality workflows.</li>
+        <li><strong>Fullstack and Junior Software Developer</strong>, Fit Ideas (Aug 2021-Aug 2024), with responsibilities across development, technical leadership, and delivery.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-heading"><h2>Academic service and community</h2></div>
+      <ul class="home-list">
+        <li>Student volunteer at <strong>ICSE 2026</strong> in Rio de Janeiro, Brazil.</li>
+        <li>Reviewer/sub-reviewer for <strong>MSR 2026 (Mining Challenge)</strong>, <strong>USENIX 2026 Cycle 2</strong>, and <strong>ICSE 2026</strong>.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-heading"><h2>Grants and scholarships</h2></div>
+      <ul class="home-list">
+        <li>Travel support for the <strong>ICSE 2026 Student Mentoring Workshop (SMeW)</strong> (NSF and ACM SIGSOFT).</li>
+        <li><strong>Ser Pilo Paga</strong> merit scholarship from the Ministry of Education of Colombia.</li>
+      </ul>
+    </section>
+
+    <p class="home-closing">You can explore more in <a href="/publications/">Publications</a>, <a href="/talks/">Talks</a>, <a href="/year-archive/">Blog Posts</a>, and my <a href="/cv/">CV</a>.</p>
+      </div>
+    </ContentLayout>
+  </main>
+</BaseLayout>
