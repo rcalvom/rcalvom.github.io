@@ -32,8 +32,8 @@ const { availability } = site;
             <p class="hero-availability">Seeking {availability.term} {availability.kind}</p>
           )}
           <div class="hero-actions">
-            <a class="button-link" href={site.cv} download="Ricardo-Calvo-Mendez-CV.pdf">Academic CV (PDF)</a>
-            <a class="button-link" href={site.resume} download="Ricardo-Calvo-Mendez-Resume.pdf">Résumé (PDF)</a>
+            <a class="button-link" href={site.cv} target="_blank" rel="noreferrer">Academic CV (PDF)</a>
+            <a class="button-link" href={site.resume} target="_blank" rel="noreferrer">Résumé (PDF)</a>
             <a class="button-link button-link--quiet" href={`mailto:${site.email}`}>Email me</a>
           </div>
         </section>
@@ -200,7 +200,7 @@ const { availability } = site;
           </ul>
         </section>
 
-        <p class="home-closing">You can explore more in <a href="/publications/">Publications</a>, <a href="/talks/">Talks</a>, my <a href="/cv/">CV</a>, and my <a href={site.resume}>résumé</a>.</p>
+        <p class="home-closing">You can explore more in <a href="/publications/">Publications</a>, <a href="/talks/">Talks</a>, my <a href="/cv/">CV</a>, and my <a href={site.resume} target="_blank" rel="noreferrer">résumé</a>.</p>
       </div>
     </ContentLayout>
   </main>
