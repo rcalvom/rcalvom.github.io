@@ -4,7 +4,7 @@ title: "Curriculum Vitae"
 
 ## Summary
 
-Ph.D. student at Purdue University working on formal verification, memory-safety verification, and program analysis for low-level and embedded software, with 3+ years of industry experience in software development and quality assurance. My research builds automated tools that give rigorous guarantees about software correctness, with publications at CCS, FSE, MSR, and ASE.
+Ph.D. student in Electrical and Computer Engineering at Purdue University working on formal verification, program analysis, software security, and code optimization. My research automates program analysis for vulnerability discovery and optimization opportunities. I bring 3+ years of industry experience in full-stack development and quality assurance, including leading development teams.
 
 ## Education
 
