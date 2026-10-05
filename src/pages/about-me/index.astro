@@ -1,11 +1,12 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site } from "../../config/site";
 import ContentLayout from "../../components/ContentLayout.astro";
 import PhotoGallery from "../../components/PhotoGallery.astro";
 ---
 
-<BaseLayout title="About me">
-  <main class="page-main shell">
+<BaseLayout title="About me" description={`Personal background, hobbies, and film photography by ${site.name}.`}>
+  <main id="main-content" class="page-main shell">
     <ContentLayout>
       <header class="page-heading">
         <div>
@@ -16,7 +17,7 @@ import PhotoGallery from "../../components/PhotoGallery.astro";
         <section class="about-intro">
           <p>I am from Bogotá, Colombia 🇨🇴 where I lived for 21 years. I am an ajiaco lover and a proud changua advocate 🍲. Since 2025, I have been living in West Lafayette, Indiana, USA for my PhD at Purdue.</p>
         </section>
-        <section>
+        <section class="about-section">
         <h2>My hobbies</h2>
         <ul class="hobby-list">
           <li>I started learning the guitar 🎸 and clarinet at age 8. For a while I dreamed of a professional music career, but I found a deeper passion in computing engineering. These days I play just for fun. Here is a <a href="https://www.youtube.com/watch?v=DUkVjsmXk84">video of me playing clarinet and guitar</a>, where I also talk about that part of my life.</li>

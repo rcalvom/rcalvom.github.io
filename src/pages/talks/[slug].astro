@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site } from "../../config/site";
 import ContentLayout from "../../components/ContentLayout.astro";
 import { formatLongDate } from "../../lib/content";
 
@@ -14,15 +15,15 @@ const { Content } = await render(talk);
 const { data } = talk;
 ---
 
-<BaseLayout title={data.title}>
-  <main class="page-main shell">
+<BaseLayout title={data.title} description={`${data.type} presentation by ${site.name} at ${data.venue}.`}>
+  <main id="main-content" class="page-main shell">
     <ContentLayout>
       <div class="article-layout article-layout--single">
         <article class="article-content">
           <header class="article-header">
             <h1>{data.title}</h1>
             <div class="article-meta">
-              <p>Date: {formatLongDate(data.date)}</p>
+              <p>Date: <time datetime={data.date.toISOString().slice(0, 10)}>{formatLongDate(data.date)}</time></p>
               <p>{data.type} at <em>{data.venue}</em>, {data.location}</p>
             </div>
           </header>

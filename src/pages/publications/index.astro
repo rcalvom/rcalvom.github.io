@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site } from "../../config/site";
 import ContentLayout from "../../components/ContentLayout.astro";
 import PublicationCard from "../../components/PublicationCard.astro";
 import { getPublications } from "../../lib/content";
@@ -9,8 +10,8 @@ const refereedPublications = publications.filter((publication) => publication.da
 const otherWorks = publications.filter((publication) => publication.data.category === "other-works");
 ---
 
-<BaseLayout title="Publications">
-  <main class="page-main shell">
+<BaseLayout title="Publications" description={`Research publications by ${site.name} in formal verification, software engineering, program analysis, and testing.`}>
+  <main id="main-content" class="page-main shell">
     <ContentLayout>
       <header class="page-heading">
         <div>
@@ -18,7 +19,7 @@ const otherWorks = publications.filter((publication) => publication.data.categor
         </div>
       </header>
       <section class="section archive-intro">
-        <p>You can also find my articles on <a href="https://scholar.google.com/citations?user=JwpDnSIAAAAJ&hl=es&authuser=1">my Google Scholar profile</a>.</p>
+          <p>You can also find my articles on <a href="https://scholar.google.com/citations?user=JwpDnSIAAAAJ">my Google Scholar profile</a>.</p>
         <div class="section-heading"><h2>Refereed Conference Publications</h2></div>
         <div class="publication-list">
           {refereedPublications.map((publication) => <PublicationCard publication={publication} />)}

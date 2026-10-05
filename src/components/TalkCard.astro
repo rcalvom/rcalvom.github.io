@@ -11,7 +11,7 @@ const { data } = talk;
 ---
 
   <article class="talk-card">
-    <div class="talk-card__date"><span>{formatLongDate(data.date)}</span></div>
+    <div class="talk-card__date"><time datetime={data.date.toISOString().slice(0, 10)}>{formatLongDate(data.date)}</time></div>
     <div>
       <h2><a href={`/talks/${data.slug}/`}>{data.title}</a></h2>
       <p>{data.type}, <em>{data.venue}</em>, {data.location}</p>

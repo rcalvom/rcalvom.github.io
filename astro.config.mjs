@@ -10,6 +10,9 @@ export default defineConfig({
     "/about/": "/",
     "/about.html": "/",
     "/resume": "/cv/",
-    "/resume-json": "/cv/"
+    "/resume-json": "/cv/",
+    "/publication/prs": "/publication/code-optimization/",
+    "/publication/oss-fuzz-gen": "/publication/false-crash-reducer/",
+    "/publication/EmNetTest": "/publication/emnettest/"
   }
 });

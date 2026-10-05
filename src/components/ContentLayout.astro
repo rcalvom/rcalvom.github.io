@@ -2,9 +2,9 @@
 import ProfilePanel from "./ProfilePanel.astro";
 ---
 
-<div class="legacy-layout">
-  <ProfilePanel />
-  <div class="legacy-layout__content">
+<div class="content-layout">
+  <div class="content-layout__main">
     <slot />
   </div>
+  <ProfilePanel />
 </div>

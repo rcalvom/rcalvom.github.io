@@ -10,10 +10,10 @@ interface Props {
 const { compact = false } = Astro.props;
 ---
 
-<aside class:list={["profile-panel", { "profile-panel--compact": compact }]}>
-  <Image class="profile-panel__image" src={portrait} alt="Portrait of Ricardo Calvo Mendez" widths={[240, 480, 720]} sizes="(max-width: 760px) 120px, (max-width: 960px) 180px, 260px" />
+<aside class:list={["profile-panel", { "profile-panel--compact": compact }]} aria-label="Profile">
+  <Image class="profile-panel__image" src={portrait} alt={`Portrait of ${site.name}`} widths={[240, 480, 720]} sizes="(max-width: 700px) 112px, (max-width: 900px) 144px, 208px" loading="eager" />
   <div class="profile-panel__content">
-    <h2>{site.name}</h2>
+    <p class="profile-panel__name">{site.name}</p>
     <p class="profile-panel__bio">{site.role}</p>
     <ul class="profile-panel__meta">
       <li>
@@ -37,6 +37,10 @@ const { compact = false } = Astro.props;
       <a href={site.links.orcid}>
         <span class="profile-panel__brand-icon" aria-hidden="true">iD</span>
         <span>ORCID</span>
+      </a>
+      <a href={site.links.dblp}>
+        <span class="profile-panel__brand-icon" aria-hidden="true">DB</span>
+        <span>DBLP</span>
       </a>
       <a href={site.links.github}>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.5 1.5-4.5-2.5-6.3-3m12.6 6v-3.9c0-1.1.1-1.6-.5-2.3 2.1-.2 4.3-1 4.3-4.7 0-1.1-.4-2-1.1-2.7.1-.3.5-1.3-.1-2.7 0 0-.9-.3-2.8 1.1A9.6 9.6 0 0 0 10 6.8c-1.9-1.4-2.8-1.1-2.8-1.1-.6 1.4-.2 2.4-.1 2.7A3.9 3.9 0 0 0 6 11.1c0 3.7 2.2 4.5 4.3 4.7-.5.5-.5 1.3-.5 2.3V22" /></svg>

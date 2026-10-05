@@ -7,9 +7,11 @@ import { site } from "../config/site";
 interface Props {
   title?: string;
   description?: string;
+  ogType?: "website" | "article";
+  additionalStructuredData?: Record<string, unknown>;
 }
 
-const { title, description = site.description } = Astro.props;
+const { title, description = site.description, ogType = "website", additionalStructuredData } = Astro.props;
 const pageTitle = title ? `${title} | ${site.name}` : site.name;
 const canonical = new URL(Astro.url.pathname, site.url);
 const socialImage = new URL("/images/ricardo.jpg", site.url);
@@ -41,7 +43,7 @@ const structuredData = {
     <link rel="canonical" href={canonical} />
     <link rel="alternate" type="application/xml" title="Sitemap" href="/sitemap-index.xml" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical.href} />
@@ -62,7 +64,9 @@ const structuredData = {
     <link rel="icon" href="/images/favicon.ico" sizes="any" />
     <meta name="theme-color" content="#000000" />
     <title>{pageTitle}</title>
+    <slot name="head" />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
+    {additionalStructuredData && <script is:inline type="application/ld+json" set:html={JSON.stringify(additionalStructuredData)}></script>}
     <script is:inline>
       (() => {
         try {
@@ -75,6 +79,7 @@ const structuredData = {
     </script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <Header />
     <slot />
     <Footer />

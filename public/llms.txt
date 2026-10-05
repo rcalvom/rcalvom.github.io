@@ -1,19 +1,20 @@
-# Ricardo Calvo Mendez
+# Ricardo Andrés Calvo Méndez
 
-> Academic website of Ricardo Calvo Mendez, a PhD student in Electrical and Computer Engineering at Purdue University.
+> Academic website of Ricardo Andrés Calvo Méndez (publishes as R. Calvo), a PhD student in Electrical and Computer Engineering at Purdue University, working on formal verification, memory-safety verification, program analysis, and automated software testing in the Duality Lab under James C. Davis.
 
 ## Main pages
 
-- [Profile](https://rcalvom.github.io/): research interests, education, experience, service, and grants.
+- [Profile](https://rcalvom.github.io/): research interests, selected work, technical skills, education, experience, teaching, academic service, and grants.
 - [Publications](https://rcalvom.github.io/publications/): publication records and links to papers, slides, and BibTeX.
 - [Talks and presentations](https://rcalvom.github.io/talks/): conference talks and poster presentations.
-- [CV](https://rcalvom.github.io/cv/): web CV and official downloadable PDF.
+- [CV](https://rcalvom.github.io/cv/): web CV, the official academic CV PDF, and the professional résumé PDF.
 - [About me](https://rcalvom.github.io/about-me/): personal background and photography.
-- [Blog posts](https://rcalvom.github.io/year-archive/): published posts by year.
 
 ## Canonical sources
 
 - [Sitemap](https://rcalvom.github.io/sitemap-index.xml)
-- [Official CV PDF](https://rcalvom.github.io/cv.pdf)
-- [Google Scholar](https://scholar.google.com/citations?user=JwpDnSIAAAAJ&hl=es&authuser=1)
+- [Official academic CV PDF](https://rcalvom.github.io/files/cv.pdf)
+- [Professional résumé PDF](https://rcalvom.github.io/files/resume.pdf)
+- [Google Scholar](https://scholar.google.com/citations?user=JwpDnSIAAAAJ)
 - [ORCID](https://orcid.org/0009-0003-6681-4840)
+- [DBLP](https://dblp.org/pid/355/2654)

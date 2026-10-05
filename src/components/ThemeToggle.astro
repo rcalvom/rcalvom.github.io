@@ -1,15 +1,27 @@
-<button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme">
+<button class="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" /><circle cx="12" cy="12" r="2.75" /></svg>
 </button>
 
 <script>
   const buttons = document.querySelectorAll<HTMLButtonElement>(".theme-toggle");
 
+  const syncLabels = () => {
+    const theme = document.documentElement.dataset.theme === "light" ? "light" : "dark";
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    for (const button of buttons) {
+      button.setAttribute("aria-label", `Switch to ${nextTheme} theme`);
+      button.setAttribute("title", `Switch to ${nextTheme} theme`);
+      button.setAttribute("aria-pressed", String(theme === "light"));
+    }
+  };
+
+  syncLabels();
   for (const button of buttons) {
     button.addEventListener("click", () => {
       const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
       document.documentElement.dataset.theme = nextTheme;
       localStorage.setItem("site-theme", nextTheme);
+      syncLabels();
     });
   }
 </script>

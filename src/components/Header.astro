@@ -4,6 +4,11 @@ import { site, visibleNavigation } from "../config/site";
 
 const pathname = Astro.url.pathname;
 const navigation = visibleNavigation();
+const isActive = (href: string) => {
+  if (href === "/publications/") return pathname.startsWith("/publications/") || pathname.startsWith("/publication/");
+  if (href === "/year-archive/") return pathname.startsWith("/year-archive/") || pathname.startsWith("/posts/");
+  return pathname.startsWith(href);
+};
 ---
 
 <header class="site-header">
@@ -14,7 +19,7 @@ const navigation = visibleNavigation();
 
     <nav class="desktop-nav" aria-label="Primary navigation">
       {navigation.map((item) => (
-        <a class:list={["nav-link", { "nav-link--active": pathname.startsWith(item.href) }]} href={item.href}>
+        <a class:list={["nav-link", { "nav-link--active": isActive(item.href) }]} href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
           {item.label}
         </a>
       ))}
@@ -22,10 +27,10 @@ const navigation = visibleNavigation();
     </nav>
 
     <details class="mobile-nav">
-      <summary aria-label="Open navigation"><span></span><span></span></summary>
+      <summary data-navigation-toggle aria-label="Open navigation"><span></span><span></span></summary>
       <div class="mobile-nav__panel">
         {navigation.map((item) => (
-          <a class:list={["mobile-nav__link", { "mobile-nav__link--active": pathname.startsWith(item.href) }]} href={item.href}>
+          <a class:list={["mobile-nav__link", { "mobile-nav__link--active": isActive(item.href) }]} href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
             {item.label}
           </a>
         ))}
@@ -34,3 +39,12 @@ const navigation = visibleNavigation();
     </details>
   </div>
 </header>
+
+<script>
+  for (const navigation of document.querySelectorAll<HTMLDetailsElement>(".mobile-nav")) {
+    const toggle = navigation.querySelector<HTMLElement>("[data-navigation-toggle]");
+    navigation.addEventListener("toggle", () => {
+      toggle?.setAttribute("aria-label", navigation.open ? "Close navigation" : "Open navigation");
+    });
+  }
+</script>

@@ -4,7 +4,15 @@ slug: "lessons-oss-fuzz-gen"
 category: "refereed-conference-publications"
 date: 2026-07-05
 venue: "Proceedings of the 34th ACM International Conference on the Foundations of Software Engineering"
-citation: "Paschal Amusuo, Dongge Liu, Ricardo Andres Calvo Mendez, Jonathan Metzman, Oliver Chang, James C Davis"
+authors:
+  - "Paschal Amusuo"
+  - "Dongge Liu"
+  - "Ricardo Calvo"
+  - "Jonathan Metzman"
+  - "Oliver Chang"
+  - "James C. Davis"
+pages: "316-321"
+doi: "10.1145/3803437.3805205"
 paperUrl: "https://dl.acm.org/doi/pdf/10.1145/3803437.3805205"
 ---
 

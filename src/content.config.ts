@@ -7,13 +7,16 @@ const publications = defineCollection({
   schema: z.object({
     title: z.string(),
     slug: z.string(),
-    category: z.string().default("refereed-conference-publications"),
+    category: z.enum(["refereed-conference-publications", "other-works"]).default("refereed-conference-publications"),
     date: z.coerce.date(),
     venue: z.string(),
-    citation: z.string(),
-    paperUrl: z.string().optional(),
-    slidesUrl: z.string().optional(),
-    bibtexUrl: z.string().optional()
+    authors: z.array(z.string()).min(1),
+    status: z.enum(["published", "preprint", "forthcoming"]).default("published"),
+    pages: z.string().optional(),
+    doi: z.string().optional(),
+    paperUrl: z.url().optional(),
+    preprintUrl: z.url().optional(),
+    slidesUrl: z.url().optional()
   })
 });
 

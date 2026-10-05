@@ -1,5 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { formatAcmCitation } from "../lib/publications";
+import CopyBibtex from "./CopyBibtex.astro";
 interface Props {
   publication: CollectionEntry<"publications">;
   featured?: boolean;
@@ -7,15 +9,21 @@ interface Props {
 
 const { publication, featured = false } = Astro.props;
 const { data } = publication;
+const publicationStatus = data.status === "forthcoming" ? "Accepted at" : data.status === "preprint" ? "Preprint" : "Published in";
+const citation = formatAcmCitation(data);
 ---
 
 <article class:list={["publication-card", { "publication-card--featured": featured }]}>
   <div class="publication-card__main">
     <h2><a href={`/publication/${data.slug}/`}>{data.title}</a></h2>
-    <p class="publication-card__venue">Published in <em>{data.venue}</em>, {data.date.getFullYear()}.</p>
-    <p class="publication-card__citation">Recommended citation: {data.citation}</p>
+    <p class="publication-card__venue">{publicationStatus} <em>{data.venue}</em>, {data.date.getFullYear()}.</p>
+    <p class="publication-card__citation">Recommended citation: {citation}</p>
     <div class="publication-card__actions">
-      {data.paperUrl && <a href={data.paperUrl} target="_blank" rel="noreferrer">Download Paper</a>}
+      {data.paperUrl && <a href={data.paperUrl} target="_blank" rel="noreferrer">Publisher version</a>}
+      {data.preprintUrl && <a href={data.preprintUrl} target="_blank" rel="noreferrer">Preprint</a>}
+      {data.doi && <a href={`https://doi.org/${data.doi}`} target="_blank" rel="noreferrer">DOI</a>}
+      {data.slidesUrl && <a href={data.slidesUrl} target="_blank" rel="noreferrer">Slides</a>}
+      <CopyBibtex publication={data} />
     </div>
   </div>
 </article>

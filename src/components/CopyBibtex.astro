@@ -1,0 +1,45 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { formatBibtex } from "../lib/publications";
+
+interface Props {
+  publication: CollectionEntry<"publications">["data"];
+  class?: string;
+}
+
+const { publication, class: className } = Astro.props;
+---
+
+<!-- Without JavaScript this stays a plain link to the .bib file; the script turns it into a copy action. -->
+<a
+  class:list={["copy-bibtex", className]}
+  href={`/publication/${publication.slug}.bib`}
+  data-bibtex={formatBibtex(publication)}
+  aria-live="polite"
+  download
+>Copy BibTeX</a>
+
+<script>
+  const links = document.querySelectorAll<HTMLAnchorElement>(".copy-bibtex[data-bibtex]");
+
+  for (const link of links) {
+    const label = link.textContent;
+    let timer: number | undefined;
+
+    link.setAttribute("role", "button");
+    link.addEventListener("click", async (event) => {
+      if (!navigator.clipboard) return;
+      event.preventDefault();
+      try {
+        await navigator.clipboard.writeText(link.dataset.bibtex ?? "");
+        link.textContent = "Copied!";
+      } catch {
+        link.textContent = "Copy failed";
+      }
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        link.textContent = label;
+      }, 2000);
+    });
+  }
+</script>

@@ -2,6 +2,7 @@
 import { getEntry, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ContentLayout from "../../components/ContentLayout.astro";
+import { site } from "../../config/site";
 
 const cv = await getEntry("pages", "cv");
 if (!cv) {
@@ -10,8 +11,8 @@ if (!cv) {
 const { Content } = await render(cv);
 ---
 
-<BaseLayout title="CV">
-  <main class="page-main shell">
+<BaseLayout title="CV" description={`Curriculum vitae of ${site.name}, PhD student in Electrical and Computer Engineering at Purdue University.`}>
+  <main id="main-content" class="page-main shell">
     <ContentLayout>
       <header class="page-heading cv-page-heading">
         <div>
@@ -19,8 +20,9 @@ const { Content } = await render(cv);
         </div>
         <div class="cv-download">
           <div class="cv-download__actions">
-            <a class="button-link button-link--quiet" href="/cv.pdf" target="_blank" rel="noreferrer">View CV as PDF</a>
-            <a class="button-link" href="/cv.pdf" download="Ricardo-Calvo-Mendez-CV.pdf">Download CV as PDF</a>
+            <a class="button-link button-link--quiet" href={site.cv} target="_blank" rel="noreferrer">View CV</a>
+            <a class="button-link" href={site.cv} download="Ricardo-Calvo-Mendez-CV.pdf">Download CV (PDF)</a>
+            <a class="button-link" href={site.resume} download="Ricardo-Calvo-Mendez-Resume.pdf">Résumé (PDF)</a>
           </div>
         </div>
       </header>

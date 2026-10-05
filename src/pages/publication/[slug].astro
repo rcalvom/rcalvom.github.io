@@ -2,6 +2,8 @@
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ContentLayout from "../../components/ContentLayout.astro";
+import CopyBibtex from "../../components/CopyBibtex.astro";
+import { formatAcmCitation, markdownToText } from "../../lib/publications";
 
 export async function getStaticPaths() {
   const publications = await getCollection("publications");
@@ -14,22 +16,60 @@ export async function getStaticPaths() {
 const { publication } = Astro.props;
 const { Content } = await render(publication);
 const { data } = publication;
+const description = markdownToText(publication.body ?? data.title);
+const citation = formatAcmCitation(data);
+const publicationStatus = data.status === "forthcoming" ? "Accepted at" : data.status === "preprint" ? "Preprint" : "Published in";
+const citationPdfUrl = data.preprintUrl ?? data.paperUrl;
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  headline: data.title,
+  author: data.authors.map((name) => ({ "@type": "Person", name })),
+  datePublished: data.date.toISOString().slice(0, 10),
+  isPartOf: {
+    "@type": "PublicationIssue",
+    name: data.venue
+  },
+  ...(data.pages && { pagination: data.pages }),
+  ...(data.doi && { sameAs: `https://doi.org/${data.doi}` }),
+  ...(data.paperUrl && { url: data.paperUrl }),
+  ...(data.preprintUrl && { encoding: { "@type": "MediaObject", contentUrl: data.preprintUrl, encodingFormat: "application/pdf" } })
+};
 ---
 
-<BaseLayout title={data.title}>
-  <main class="page-main shell">
+<BaseLayout title={data.title} description={description} ogType="article" additionalStructuredData={articleSchema}>
+  <Fragment slot="head">
+    <meta name="citation_title" content={data.title} />
+    {data.authors.map((author) => <meta name="citation_author" content={author} />)}
+    <meta name="citation_publication_date" content={data.date.toISOString().slice(0, 10)} />
+    <meta name="citation_conference_title" content={data.venue} />
+    {data.pages && <meta name="citation_pages" content={data.pages} />}
+    {data.doi && <meta name="citation_doi" content={data.doi} />}
+    {citationPdfUrl && <meta name="citation_pdf_url" content={citationPdfUrl} />}
+    <meta name="citation_language" content="en" />
+  </Fragment>
+  <main id="main-content" class="page-main shell">
     <ContentLayout>
       <div class="article-layout article-layout--single">
         <article class="article-content">
           <header class="article-header">
             <h1>{data.title}</h1>
             <div class="article-meta">
-              <p>Published in <em>{data.venue}</em>, {data.date.getFullYear()}.</p>
-              <p>Recommended citation: {data.citation}</p>
+              <p>{publicationStatus} <em>{data.venue}</em>, {data.date.getFullYear()}.</p>
+              <p>Recommended citation: {citation}</p>
             </div>
-            {data.paperUrl && <div class="article-actions"><a class="text-link" href={data.paperUrl} target="_blank" rel="noreferrer">Download Paper</a></div>}
+            <div class="article-actions">
+              {data.paperUrl && <a class="text-link" href={data.paperUrl} target="_blank" rel="noreferrer">Publisher version</a>}
+              {data.preprintUrl && <a class="text-link" href={data.preprintUrl} target="_blank" rel="noreferrer">Preprint</a>}
+              {data.doi && <a class="text-link" href={`https://doi.org/${data.doi}`} target="_blank" rel="noreferrer">DOI</a>}
+              {data.slidesUrl && <a class="text-link" href={data.slidesUrl} target="_blank" rel="noreferrer">Slides</a>}
+              <CopyBibtex publication={data} class="text-link" />
+            </div>
           </header>
-          <div class="prose"><Content /></div>
+          <div class="prose">
+            <h2>Abstract</h2>
+            <Content />
+          </div>
         </article>
       </div>
     </ContentLayout>

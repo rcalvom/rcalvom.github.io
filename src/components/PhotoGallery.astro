@@ -19,9 +19,28 @@ import photo15 from "../assets/photos/15.jpg";
 import photo16 from "../assets/photos/16.jpg";
 
 const sourcePhotos = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11, photo12, photo13, photo14, photo15, photo16];
+const photoAltTexts = [
+  "Historic courthouse at a city intersection",
+  "Sunlit road bordered by trees",
+  "Dimly lit living room with plants and a television",
+  "Sunlit lawn and trees beside a brick building",
+  "Pedestrian ramp with globe street lamps",
+  "Purple flowers growing from a stone planter",
+  "Black-and-white photograph of a motorcycle parked on a street",
+  "Railroad tracks seen through a metal grid",
+  "Brick buildings seen through a window",
+  "Downtown skyline with a construction crane",
+  "Clock tower framed by autumn trees",
+  "Chicago River and skyline seen from above",
+  "Pedestrians walking through a downtown Chicago street",
+  "Chicago River framed by high-rise buildings",
+  "Chicago River with boats and a downtown skyline",
+  "Cloud Gate sculpture in Chicago's Millennium Park"
+];
 const photos = await Promise.all(
   sourcePhotos.map(async (image, index) => ({
     image,
+    alt: photoAltTexts[index],
     number: String(index + 1).padStart(2, "0"),
     lightbox: await getImage({
       src: image,
@@ -35,10 +54,10 @@ const photos = await Promise.all(
 <section class="photo-section" aria-labelledby="photo-gallery-title">
   <h2 id="photo-gallery-title" class="sr-only">Photography</h2>
   <div id="photo-gallery" class="photo-gallery">
-    {photos.map((photo, index) => (
+    {photos.map((photo) => (
       <figure class="photo-gallery__item">
-        <a href={photo.lightbox.src} data-pswp-width={photo.lightbox.attributes.width} data-pswp-height={photo.lightbox.attributes.height} aria-label={`Open film photograph ${photo.number}`}>
-          <Image src={photo.image} alt={`Photo ${index + 1}`} widths={[480, 800, 1200]} sizes="(max-width: 760px) calc(100vw - 2rem), (max-width: 1100px) 45vw, 30vw" format="webp" loading="lazy" />
+        <a href={photo.lightbox.src} data-pswp-width={photo.lightbox.attributes.width} data-pswp-height={photo.lightbox.attributes.height} aria-label={`Open ${photo.alt.toLowerCase()}`}>
+          <Image src={photo.image} alt={photo.alt} widths={[480, 800, 1200]} sizes="(max-width: 760px) calc(100vw - 2rem), (max-width: 1100px) 45vw, 30vw" format="webp" loading="lazy" />
         </a>
       </figure>
     ))}

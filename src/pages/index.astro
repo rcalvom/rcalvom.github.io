@@ -1,83 +1,206 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContentLayout from "../components/ContentLayout.astro";
+import { site } from "../config/site";
+
+const { availability } = site;
 ---
 
 <BaseLayout>
-  <main class="page-main shell">
+  <main id="main-content" class="page-main shell">
     <ContentLayout>
       <div class="home-content">
-    <section class="home-hero">
-      <div>
-        <h1>Profile</h1>
-        <p class="home-intro">Hello, I am Ricardo Calvo.</p>
-        <p class="hero__lead">
-          I am a PhD student in Electrical and Computer Engineering at Purdue University, and a Graduate Research Assistant in the <a href="https://davisjam.github.io/research/">Duality Lab</a>.
-        </p>
-      </div>
-    </section>
+        <section class="home-hero">
+          <h1>{site.name}</h1>
+          <p class="hero__lead">
+            I am a PhD student in Electrical and Computer Engineering at Purdue University and a Graduate Research
+            Assistant in the <a href="https://davisjam.github.io/research/">Duality Lab</a>, advised by James C. Davis.
+          </p>
+          <p class="hero__lead">
+            I build methods and tools that give rigorous guarantees about software correctness: formal verification,
+            program analysis, and automated testing applied at industrial scale. AutoSOUP, which automates
+            memory-safety verification of C components, is accepted at <a href="/publication/autosoup/">ACM CCS 2026</a>.
+            My work on reducing false positives in Google's OSS-Fuzz-Gen appears at <a href="/publication/lessons-oss-fuzz-gen/">FSE 2026</a>,
+            and EmNetTest found seven previously unknown defects, six of them assigned CVEs, in widely used embedded
+            network stacks.
+          </p>
+          <p class="hero-interests">
+            <span class="hero-interests__label">Research interests</span>
+            Formal verification · Program analysis and testing · Performance optimization
+          </p>
+          {availability.seeking && (
+            <p class="hero-availability">Seeking {availability.term} {availability.kind}</p>
+          )}
+          <div class="hero-actions">
+            <a class="button-link" href={site.cv} download="Ricardo-Calvo-Mendez-CV.pdf">Academic CV (PDF)</a>
+            <a class="button-link" href={site.resume} download="Ricardo-Calvo-Mendez-Resume.pdf">Résumé (PDF)</a>
+            <a class="button-link button-link--quiet" href={`mailto:${site.email}`}>Email me</a>
+          </div>
+        </section>
 
-    <section class="section">
-      <div class="section-heading">
-        <h2>Research interests</h2>
-      </div>
-      <div class="research-grid research-grid--home">
-        <article class="research-card">
-          <h3>Formal verification:</h3>
-          <p>foundations and tools for proving software correctness.</p>
-        </article>
-        <article class="research-card">
-          <h3>Program analysis and testing:</h3>
-          <p>static, dynamic, and hybrid methods for understanding and validating code.</p>
-        </article>
-        <article class="research-card">
-          <h3>Optimization and efficiency:</h3>
-          <p>techniques for improving performance and resource usage in real systems.</p>
-        </article>
-      </div>
-    </section>
+        <section class="section">
+          <div class="section-heading"><h2>Selected work</h2></div>
+          <div class="project-list">
+            <article class="project-card">
+              <h3>AutoSOUP</h3>
+              <p class="project-card__meta">Purdue University, Duality Lab &middot; ACM CCS 2026 &middot; Presenting author</p>
+              <p>
+                A system that automates memory-safety verification of C components by generating unit proofs with
+                LLMs and bounded model checking (CBMC). I co-develop it: I designed its debugging agent, which reads
+                verification errors, diagnoses why a proof fails, and proposes a fix, and I built the cluster setup for
+                its evaluation. Across 177 components from four embedded
+                operating systems it verified 93% of candidate targets, exposed 66.7% of 60 known CVEs (versus 28.3%
+                for a frontier coding agent), and uncovered 20 new vulnerabilities reported to maintainers.
+              </p>
+              <div class="project-card__links">
+                <a href="/publication/autosoup/">CCS 2026 paper</a>
+              </div>
+            </article>
+            <article class="project-card">
+              <h3>FalseCrashReducer, in Google's OSS-Fuzz-Gen</h3>
+              <p class="project-card__meta">With Google Open Source Security &middot; FSE 2026 (Industry)</p>
+              <p>
+                Two AI-driven strategies that cut false positive crashes in an industry-scale fuzz driver generation
+                pipeline. Across 1,500 OSS-Fuzz benchmark functions they filtered out more than half of the crashes
+                initially reported as program errors.
+              </p>
+              <div class="project-card__links">
+                <a href="/publication/lessons-oss-fuzz-gen/">FSE 2026 paper</a>
+                <a href="/publication/false-crash-reducer/">Extended preprint</a>
+              </div>
+            </article>
+            <article class="project-card">
+              <h3>EmNetTest</h3>
+              <p class="project-card__meta">Purdue University &middot; ASE 2023 (21% acceptance)</p>
+              <p>
+                A systematic testing framework for embedded network stacks. With mentorship, I designed and implemented its
+                fuzzing strategy and its evaluation, and contributed to the manual triage of results. It replicated 12 of 14 known IP/TCP/UDP vulnerabilities and discovered
+                7 novel defects, 6 of which received CVEs, in stacks that prior fuzzing research had not broken.
+              </p>
+              <div class="project-card__links">
+                <a href="/publication/emnettest/">ASE 2023 paper</a>
+              </div>
+            </article>
+            <article class="project-card">
+              <h3>How agents perform code optimization</h3>
+              <p class="project-card__meta">Empirical study &middot; MSR 2026 (Mining Challenge)</p>
+              <p>
+                The first empirical comparison of agent- and human-authored performance optimization commits, over 324
+                agent-generated and 83 human-authored pull requests.
+              </p>
+              <div class="project-card__links">
+                <a href="/publication/code-optimization/">MSR 2026 paper</a>
+              </div>
+            </article>
+          </div>
+        </section>
 
-    <section class="section">
-      <div class="section-heading"><h2>Education</h2></div>
-      <ul class="home-list">
-        <li><strong>PhD, Electrical and Computer Engineering</strong>, Purdue University (2025-2030 expected).</li>
-        <li><strong>BSc, Systems and Computer Engineering</strong>, Universidad Nacional de Colombia (2018-2023).</li>
-      </ul>
-    </section>
+        <section class="section">
+          <div class="section-heading"><h2>Technical skills</h2></div>
+          <div class="skill-list">
+            <div class="skill-row">
+              <span class="skill-row__label">Research &amp; Security</span>
+              <ul class="skill-row__items">
+                <li>Formal verification</li>
+                <li>Memory-safety verification</li>
+                <li>Bounded model checking (CBMC)</li>
+                <li>Program analysis</li>
+                <li>Fuzzing</li>
+                <li>Performance optimization</li>
+              </ul>
+            </div>
+            <div class="skill-row">
+              <span class="skill-row__label">Programming</span>
+              <ul class="skill-row__items">
+                <li>C</li>
+                <li>C++</li>
+                <li>Python</li>
+                <li>Java</li>
+                <li>JavaScript</li>
+                <li>TypeScript</li>
+                <li>Dart</li>
+                <li>SQL</li>
+              </ul>
+            </div>
+            <div class="skill-row">
+              <span class="skill-row__label">AI for SE</span>
+              <ul class="skill-row__items">
+                <li>LLM agents</li>
+                <li>Agentic pipelines</li>
+                <li>Empirical evaluation</li>
+              </ul>
+            </div>
+            <div class="skill-row">
+              <span class="skill-row__label">Engineering</span>
+              <ul class="skill-row__items">
+                <li>Spring Boot</li>
+                <li>React</li>
+                <li>Django</li>
+                <li>Flask</li>
+                <li>Flutter</li>
+                <li>PostgreSQL</li>
+                <li>Selenium</li>
+                <li>Cucumber</li>
+                <li>CI/CD</li>
+                <li>Docker</li>
+                <li>Linux</li>
+                <li>Git</li>
+              </ul>
+            </div>
+          </div>
+        </section>
 
-    <section class="section">
-      <div class="section-heading"><h2>Academic experience</h2></div>
-      <ul class="home-list">
-        <li><strong>Graduate Research Assistant</strong>, Purdue University (Aug 2025-present).</li>
-        <li><strong>Undergraduate Visiting Scholar (UREP-C)</strong>, Purdue University (Feb 2023-Jul 2023), where I contributed to EmNetTest.</li>
-      </ul>
-    </section>
+        <section class="section">
+          <div class="section-heading"><h2>Education</h2></div>
+          <ul class="home-list">
+            <li><strong>PhD, Electrical and Computer Engineering</strong>, Purdue University (2025-2030 expected).</li>
+            <li><strong>BSc, Systems and Computer Engineering</strong>, Universidad Nacional de Colombia (2018-2023), ranked #1 in Colombia; class rank 2/49.</li>
+          </ul>
+        </section>
 
-    <section class="section">
-      <div class="section-heading"><h2>Professional experience</h2></div>
-      <ul class="home-list">
-        <li><strong>Test Engineer and QA Analyst</strong>, Kravata (Sep 2024-Jul 2025), leading test automation and CI/CD quality workflows.</li>
-        <li><strong>Fullstack and Junior Software Developer</strong>, Fit Ideas (Aug 2021-Aug 2024), with responsibilities across development, technical leadership, and delivery.</li>
-      </ul>
-    </section>
+        <section class="section">
+          <div class="section-heading"><h2>Research experience</h2></div>
+          <ul class="home-list">
+            <li><strong>Graduate Research Assistant</strong>, Purdue University (Aug 2025-present), co-developing AutoSOUP and designing its debugging agent.</li>
+            <li><strong>Undergraduate Visiting Scholar (UREP-C)</strong>, Purdue University (Feb 2023-Jul 2023), where I designed and implemented EmNetTest's fuzzing strategy and evaluation.</li>
+          </ul>
+        </section>
 
-    <section class="section">
-      <div class="section-heading"><h2>Academic service and community</h2></div>
-      <ul class="home-list">
-        <li>Student volunteer at <strong>ICSE 2026</strong> in Rio de Janeiro, Brazil.</li>
-        <li>Reviewer/sub-reviewer for <strong>MSR 2026 (Mining Challenge)</strong>, <strong>USENIX 2026 Cycle 2</strong>, and <strong>ICSE 2026</strong>.</li>
-      </ul>
-    </section>
+        <section class="section">
+          <div class="section-heading"><h2>Teaching</h2></div>
+          <ul class="home-list">
+            <li><strong>Graduate Teaching Assistant</strong>, ECE 30861: Software Engineering, Purdue University (Fall 2026), grading assignments and holding office hours for about 150 students.</li>
+          </ul>
+        </section>
 
-    <section class="section">
-      <div class="section-heading"><h2>Grants and scholarships</h2></div>
-      <ul class="home-list">
-        <li>Travel support for the <strong>ICSE 2026 Student Mentoring Workshop (SMeW)</strong> (NSF and ACM SIGSOFT).</li>
-        <li><strong>Ser Pilo Paga</strong> merit scholarship from the Ministry of Education of Colombia.</li>
-      </ul>
-    </section>
+        <section class="section">
+          <div class="section-heading"><h2>Industry experience</h2></div>
+          <ul class="home-list">
+            <li><strong>Test Engineer and QA Analyst</strong>, Kravata (Sep 2024-Jul 2025), as the company's first and only QA engineer: I defined its testing strategy from scratch and automated unit, integration, and end-to-end tests in CI/CD.</li>
+            <li><strong>Full-Stack Software Developer</strong>, Fit Ideas (Aug 2023-Aug 2024), leading a team of 4 developers on a white-label fuel sales app: architecture, code reviews, and Scrum.</li>
+            <li><strong>Junior Software Developer</strong>, Fit Ideas (Aug 2021-Jan 2023), building web and mobile features, a configurable web scraper for public data, and relational databases.</li>
+          </ul>
+        </section>
 
-    <p class="home-closing">You can explore more in <a href="/publications/">Publications</a>, <a href="/talks/">Talks</a>, <a href="/year-archive/">Blog Posts</a>, and my <a href="/cv/">CV</a>.</p>
+        <section class="section">
+          <div class="section-heading"><h2>Academic service</h2></div>
+          <ul class="home-list">
+            <li>Reviewer for the <strong>MSR 2026 Mining Challenge Track</strong>.</li>
+            <li>Sub-reviewer for <strong>ICSE 2026</strong>, <strong>ICSE 2027</strong>, and <strong>USENIX Security 2026 (Cycle 2)</strong>.</li>
+            <li>Student volunteer at <strong>ICSE 2026</strong> in Rio de Janeiro, Brazil.</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <div class="section-heading"><h2>Grants and scholarships</h2></div>
+          <ul class="home-list">
+            <li>Awarded the <a href="https://www.sigsac.org/ccs/CCS2026/attending/conference-grants.html"><strong>ACM CCS 2026 Student Conference Grant</strong></a> supporting conference registration and travel costs.</li>
+            <li>Travel support for the <strong>ICSE 2026 Student Mentoring Workshop (SMeW)</strong> (NSF and ACM SIGSOFT).</li>
+            <li><strong>Ser Pilo Paga</strong> merit scholarship (2017) from the Ministry of Education of Colombia, awarded for top national performance on the high-school exit examination; full undergraduate tuition.</li>
+          </ul>
+        </section>
+
+        <p class="home-closing">You can explore more in <a href="/publications/">Publications</a>, <a href="/talks/">Talks</a>, my <a href="/cv/">CV</a>, and my <a href={site.resume}>résumé</a>.</p>
       </div>
     </ContentLayout>
   </main>

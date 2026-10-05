@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site } from "../../config/site";
 import ContentLayout from "../../components/ContentLayout.astro";
 import TalkCard from "../../components/TalkCard.astro";
 import { getTalks } from "../../lib/content";
@@ -7,8 +8,8 @@ import { getTalks } from "../../lib/content";
 const talks = await getTalks();
 ---
 
-<BaseLayout title="Talks and presentations" description="Ricardo Calvo Mendez's academic portfolio">
-  <main class="page-main shell">
+<BaseLayout title="Talks and presentations" description={`Conference talks and poster presentations by ${site.name}.`}>
+  <main id="main-content" class="page-main shell">
     <ContentLayout>
       <header class="page-heading">
         <div>

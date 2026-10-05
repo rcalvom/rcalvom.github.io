@@ -15,3 +15,6 @@ dist/
 
 # Ignore files created by MacOS
 .DS_Store
+
+# Python bytecode
+__pycache__/
