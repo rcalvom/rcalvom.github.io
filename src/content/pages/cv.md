@@ -30,6 +30,8 @@ Aug 2025 - Present
 - Designed AutoSOUP's debugging agent, which reads verification errors, diagnoses why a proof fails, and proposes a fix.
 - Built the experimental setup used to run AutoSOUP's large-scale evaluation on a computing cluster.
 - Across 177 components from four embedded operating systems, AutoSOUP verified 93% of candidate targets, exposed 66.7% of 60 known CVEs (versus 28.3% for a frontier coding agent), and uncovered 20 new vulnerabilities reported to maintainers. Accepted at ACM CCS 2026; presenting author.
+- **Co-first author** of a large-scale study of how AI coding agents optimize software, analyzing **2,260 performance pull requests** (1,130 agentic, 1,130 human); extends our MSR 2026 paper, which I presented.
+- Co-authored a study on false-positive crashes in Google's OSS-Fuzz-Gen (FSE 2026); presenting author.
 
 ### Undergraduate Visiting Scholar (UREP-C)
 
@@ -82,6 +84,11 @@ Grade assignments and hold office hours for about 150 students.
 2. P. Amusuo, D. Liu, **R. Calvo**, J. Metzman, O. Chang, and J. C. Davis. *Lessons from Mitigating False Positives in Google's OSS-Fuzz-Gen.* Proceedings of the 34th ACM International Conference on the Foundations of Software Engineering (FSE-Industry'26). 39% acceptance rate (66/171). 6 pages. Presenting author.
 3. H. Peng, A. Z. Qiu, **R. Calvo**, K. G. Kalu, and J. C. Davis. *How Do Agents Perform Code Optimization? An Empirical Study.* Proceedings of the 23rd International Conference on Mining Software Repositories (MSR-Mining'26). 53% acceptance rate (62/116). 5 pages. Presenting author.
 4. P. C. Amusuo, **R. Calvo**, Z. Xu, A. Machiry, and J. C. Davis. *Systematically Detecting Packet Validation Vulnerabilities in Embedded Network Stacks.* Proceedings of the 38th IEEE/ACM International Conference on Automated Software Engineering (ASE'23). 21% acceptance rate (134/629). 13 pages.
+
+## Preliminary works
+
+1. H. Peng\*, **R. Calvo**\*, K. G. Kalu, and J. C. Davis. *How Do Coding Agents Optimize Software and Report Performance Validation? A Large-Scale Empirical Study of Open-Source Pull Requests.* Technical preprint, [arXiv:2610.03969](https://arxiv.org/abs/2610.03969) (2026). \*Equal contribution.
+2. P. C. Amusuo, D. Liu, **R. Calvo**, J. Metzman, O. Chang, and J. C. Davis. *FalseCrashReducer: Mitigating False Positive Crashes in OSS-Fuzz-Gen Using Agentic AI.* Technical preprint, [arXiv:2510.02185](https://arxiv.org/abs/2510.02185) (2025).
 
 ## Academic service
 
