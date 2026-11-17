@@ -87,8 +87,9 @@ Grade assignments and hold office hours for about 150 students.
 
 ## Preliminary works
 
-1. H. Peng\*, **R. Calvo**\*, K. G. Kalu, and J. C. Davis. *How Do Coding Agents Optimize Software and Report Performance Validation? A Large-Scale Empirical Study of Open-Source Pull Requests.* Technical preprint, [arXiv:2610.03969](https://arxiv.org/abs/2610.03969) (2026). \*Equal contribution.
-2. P. C. Amusuo, D. Liu, **R. Calvo**, J. Metzman, O. Chang, and J. C. Davis. *FalseCrashReducer: Mitigating False Positive Crashes in OSS-Fuzz-Gen Using Agentic AI.* Technical preprint, [arXiv:2510.02185](https://arxiv.org/abs/2510.02185) (2025).
+1. K. Kolyakov, **R. Calvo**, J. C. Davis, and P. C. Amusuo. *Small Harnesses, Default Checks, Limited Coverage: Bounded Model Checking in Practice.* Technical preprint, [arXiv:2611.19267](https://arxiv.org/abs/2611.19267) (2026).
+2. H. Peng\*, **R. Calvo**\*, K. G. Kalu, and J. C. Davis. *How Do Coding Agents Optimize Software and Report Performance Validation? A Large-Scale Empirical Study of Open-Source Pull Requests.* Technical preprint, [arXiv:2610.03969](https://arxiv.org/abs/2610.03969) (2026). \*Equal contribution.
+3. P. C. Amusuo, D. Liu, **R. Calvo**, J. Metzman, O. Chang, and J. C. Davis. *FalseCrashReducer: Mitigating False Positive Crashes in OSS-Fuzz-Gen Using Agentic AI.* Technical preprint, [arXiv:2510.02185](https://arxiv.org/abs/2510.02185) (2025).
 
 ## Academic service
 
