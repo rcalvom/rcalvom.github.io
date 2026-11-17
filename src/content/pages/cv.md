@@ -29,7 +29,7 @@ Aug 2025 - Present
 - Co-develop AutoSOUP, a system that automates memory-safety verification of C components by generating unit proofs with large language models and bounded model checking (CBMC); contributed to system design.
 - Designed AutoSOUP's debugging agent, which reads verification errors, diagnoses why a proof fails, and proposes a fix.
 - Built the experimental setup used to run AutoSOUP's large-scale evaluation on a computing cluster.
-- Across 177 components from four embedded operating systems, AutoSOUP verified 93% of candidate targets, exposed 66.7% of 60 known CVEs (versus 28.3% for a frontier coding agent), and uncovered 20 new vulnerabilities reported to maintainers. Accepted at ACM CCS 2026; presenting author.
+- Across 177 components from four embedded operating systems, AutoSOUP verified 93% of candidate targets, exposed 66.7% of 60 known CVEs (versus 28.3% for a frontier coding agent), and uncovered 20 new vulnerabilities reported to maintainers. Published at ACM CCS 2026; presenting author.
 - **Co-first author** of a large-scale study of how AI coding agents optimize software, analyzing **2,260 performance pull requests** (1,130 agentic, 1,130 human); extends our MSR 2026 paper, which I presented.
 - Co-authored a study on false-positive crashes in Google's OSS-Fuzz-Gen (FSE 2026); presenting author.
 
@@ -80,7 +80,7 @@ Grade assignments and hold office hours for about 150 students.
 
 ## Refereed conference publications
 
-1. P. C. Amusuo, **R. Calvo**, D. Anandayuvaraj, T. Le Lievre, K. Kolyakov, E. Jorgensen, A. Machiry, and J. C. Davis. *AutoSOUP: Safety-Oriented Unit Proof Generation for Component-level Memory-Safety Verification.* Accepted at the 33rd ACM Conference on Computer and Communications Security (CCS'26). 13 pages. Presenting author.
+1. P. C. Amusuo, **R. Calvo**, D. Anandayuvaraj, T. Le Lievre, K. Kolyakov, E. Jorgensen, A. Machiry, and J. C. Davis. *AutoSOUP: Safety-Oriented Unit Proof Generation for Memory-Safety Verification.* Proceedings of the 2026 ACM SIGSAC Conference on Computer and Communications Security (CCS'26). Pages 4881-4895. Presenting author.
 2. P. Amusuo, D. Liu, **R. Calvo**, J. Metzman, O. Chang, and J. C. Davis. *Lessons from Mitigating False Positives in Google's OSS-Fuzz-Gen.* Proceedings of the 34th ACM International Conference on the Foundations of Software Engineering (FSE-Industry'26). 39% acceptance rate (66/171). 6 pages. Presenting author.
 3. H. Peng, A. Z. Qiu, **R. Calvo**, K. G. Kalu, and J. C. Davis. *How Do Agents Perform Code Optimization? An Empirical Study.* Proceedings of the 23rd International Conference on Mining Software Repositories (MSR-Mining'26). 53% acceptance rate (62/116). 5 pages. Presenting author.
 4. P. C. Amusuo, **R. Calvo**, Z. Xu, A. Machiry, and J. C. Davis. *Systematically Detecting Packet Validation Vulnerabilities in Embedded Network Stacks.* Proceedings of the 38th IEEE/ACM International Conference on Automated Software Engineering (ASE'23). 21% acceptance rate (134/629). 13 pages.
